@@ -26,6 +26,16 @@
           <li><%= link_to t("layouts.nav.add_user"), new_admin_user_path %></li>
         </ul>
       </li>
+      <li class="submenu">
+        <%= link_to do %>
+          <i class="glyphicon glyphicon-user"></i> Hotel
+          <span class="caret pull-right"></span>
+        <% end %>
+        <ul>
+          <li><%= link_to t("layouts.nav.list_hotel"), admin_hotels_path %></li>
+          <li><%= link_to t("layouts.nav.add_hotel"), new_admin_hotel_path %></li>
+        </ul>
+      </li>
   </ul>
 </div>
 </div>

@@ -21,6 +21,8 @@ en:
       page: Pages
       list_user: List user
       add_user: Add user
+      list_hotel: List hotel
+      add_hotel: Add hotel
       dashboard: Dashboard
       user: Users
     headeradmin:
@@ -28,6 +30,8 @@ en:
       logout: Logout
       admin_page: Admin page
       myacc: My account
+      list_hotel: List hotel
+      add_hotel: Add hotel
     application_admin:
       title: Booking tour
   static_pages:
@@ -84,6 +88,18 @@ en:
         user: User
       index:
         you_sure: You sure?
+    hotels:
+      new:
+        add_new: Add new
+      create:
+        create_hotel: Create success
+      index:
+        list_hotel: List Hotel
+        name: Name
+        address: Address
+        phone: Phone
+        action: Action
+        you_sure: You sure
   sessions:
     new:
       login: LOGIN
@@ -95,3 +111,6 @@ en:
       update_succ: Update profile success
       update_fail: Update fail
       find_fail: Cannot find this user
+  models:
+    hotel:
+      max_size: should be less than 5MB

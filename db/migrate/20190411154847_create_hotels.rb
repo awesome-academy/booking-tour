@@ -4,6 +4,8 @@ class CreateHotels < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :address
       t.string :phone
+      t.string :description
+      t.string :picture
       t.timestamps
     end
   end

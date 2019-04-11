@@ -1,0 +1,50 @@
+<div class="col-md-12">
+  <div class="content-box-large">
+    <div class="panel-heading">
+      <div class="panel-title"><%= t "admin.hotels.index.list_hotel" %></div>
+
+      <div class="panel-options">
+        <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
+        <a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
+      </div>
+    </div>
+    <div class="panel-body">
+    <% flash.each do |key, value| %>
+      <div class="row">
+        <div class="alert alert-<%= key %>">
+          <%= value %>
+        </div>
+      </div>
+    <% end %>
+      <table class="table table-hover">
+        <tr>
+          <th>#</th>
+          <th><%= t "admin.hotels.index.name" %></th>
+          <th><%= t "admin.hotels.index.address" %></th>
+          <th><%= t "admin.hotels.index.phone" %></th>
+          <th><%= t "admin.hotels.index.action" %></th>
+        </tr>
+        <tbody>
+          <% @hotels.each_with_index do |hotel, index| %>
+          <tr>
+            <td><%= count_number index, @hotels.current_page %></td>
+            <td><%= hotel.name %></td>
+            <td><%= hotel.address %></td>
+            <td><%= hotel.phone %></td>
+            <td>
+              <%= link_to "#" do %>
+                <i class="glyphicon glyphicon-pencil"></i>
+              <% end %>
+              <%= link_to "#", method: :delete, data: {confirm: t("admin.hotels.index.you_sure")} do %>
+                <i class="glyphicon glyphicon-trash"></i>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @hotels, theme: "twitter-bootstrap-3" %>
+    </div>
+  </div>
+</div>
+</div>

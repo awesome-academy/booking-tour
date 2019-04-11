@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_11_161404) do
+ActiveRecord::Schema.define(version: 2019_04_23_170331) do
+
+  create_table "ckeditor_assets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "data_file_name", null: false
+    t.string "data_content_type"
+    t.integer "data_file_size"
+    t.string "type", limit: 30
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type"], name: "index_ckeditor_assets_on_type"
+  end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content"
@@ -27,6 +37,8 @@ ActiveRecord::Schema.define(version: 2019_04_11_161404) do
     t.string "name"
     t.string "address"
     t.string "phone"
+    t.string "description"
+    t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -76,10 +88,8 @@ ActiveRecord::Schema.define(version: 2019_04_11_161404) do
     t.integer "duration"
     t.float "money"
     t.text "schedule"
-    t.bigint "hotels_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["hotels_id"], name: "index_tours_on_hotels_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -103,5 +113,4 @@ ActiveRecord::Schema.define(version: 2019_04_11_161404) do
   add_foreign_key "rates", "tours", column: "tours_id"
   add_foreign_key "rates", "users", column: "users_id"
   add_foreign_key "sales", "tours", column: "tours_id"
-  add_foreign_key "tours", "hotels", column: "hotels_id"
 end
